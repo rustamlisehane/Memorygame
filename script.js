@@ -43,9 +43,9 @@ startButton[0].addEventListener("click", function () {
 
                 // əgər idlər bəranbərdisə onlara tapıldı statusu bərabər edilir .
                 let allPairs = document.querySelectorAll(`[data-pairid='${pairId}']`)
-                allPairs.forEach(function (item) {
-                    item.setAttribute('data-isphound', 'tapildi')
-                })
+                for (let i = 0; i < allPairs.length; i++) {
+                    allPairs[i].setAttribute('data-isphound', 'tapildi')
+                }
                 persistedPairData = ''
                 //tapılmış kartların sayını artırır 
                 phoundCount = phoundCount + 1
@@ -54,10 +54,9 @@ startButton[0].addEventListener("click", function () {
                 }
             } else {//eger data idleri eynidirse onlara "data-pairid" statusu verilir
                 let prevCards = document.querySelectorAll(`[data-pairid='${persistedPairData}']`)
-                prevCards.forEach(function (item) {
-                    //hər bir acılan karta "card-open" statusu verilir ancaq o kartlardan sonra kilik etdiyimiz kart ilə idləri bir deilsə həmin kartda "card-open" statusu yox edilir 
-                    item.classList.remove('card-open');
-                })
+                for (let i = 0; i < prevCards.length; i++) {
+                    prevCards[i].classList.remove("card-open")
+                }
                 persistedPairData = pairId;
             }
         }
